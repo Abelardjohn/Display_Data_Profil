@@ -40,22 +40,13 @@ class Registrasi extends CI_Controller
         } else {
 
             if (!$this->upload->do_upload('foto_profil')) {
-
-                // $url = base_url('/Registrasi/index');
-                // echo $this->session->set_flashdata('error', '
-                // <p>Maaf, Anda tidak berhasil mengupload foto. Coba Lagi YA</p>');
-                // redirect($url);
                 echo $this->upload->display_errors();
                 var_dump(realpath('your path goes here'));
             } else {
-
-                // $this->upload->initialize($config);
-
                 $name = $this->input->post('nama');
                 $email = $this->input->post('email');
                 $date = date('Y-m-d');
                 $foto_profil = $this->_uploadFotoProfil();
-                // $foto_profil = $foto_profil['file_name'];
                 $hashedPassword = $this->_hashPassword($this->input->post('user_password'));
 
                 $data = array(
@@ -76,7 +67,7 @@ class Registrasi extends CI_Controller
                 // Redirect ke halaman sukses
                 $url = base_url('/Registrasi/index');
                 echo $this->session->set_flashdata('msg', '
-                <p>Selamat akun anda telah ditambahkan. Ayo Login</p>');
+                <p>Congratulations, your account is ready. Please Login!!.</p>');
                 redirect($url);
             }
         }

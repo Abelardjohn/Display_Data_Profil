@@ -50,8 +50,7 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                <?php echo $user['nama']; ?> |
-                <?php echo $this->session->userdata('access'); ?>
+                <?php echo $this->session->userdata('nama'); ?>
             </div>
         </nav>
     </div>
@@ -65,13 +64,14 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="card mt-5">
-                            <div class="card-body text-center">
-                                <img src="<?php echo base_url() . '/uploads/' . $user['foto_profil']; ?>" alt="Foto Profil" class=" mb-4" width="150" height="200">
-                                <!-- <img src="<?php echo base_url('uploads/pp.png'); ?>" alt="Gambar Pengguna" class="rounded-circle mb-4" width="150"> -->
-                                <h3 class="mb-3"><?php echo $user['nama']; ?></h3>
-                                <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
-                                <p><strong>Waktu Dibuat:</strong> <?php echo $user['date_created']; ?></p>
+                            <div class="card-body text-center rounded-4">
+
+                                <img src="<?php echo base_url() . '/uploads/' . $this->session->userdata('foto_profil'); ?>" alt="Gambar Pengguna" class="rounded-4 mb-4" width="150" height="200">
+                                <h3 class="mb-3"> <?php echo $this->session->userdata('nama'); ?></h3>
+                                <p><strong>Email:</strong> <?php echo $this->session->userdata('email'); ?></p>
+                                <p><strong>Waktu Dibuat:</strong> <?php echo $this->session->userdata('date_created'); ?></p>
                                 <p><strong>Status:</strong> <?php echo $this->session->userdata('access'); ?></p>
+
                             </div>
                         </div>
                     </div>

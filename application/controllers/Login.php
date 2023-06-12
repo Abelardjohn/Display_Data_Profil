@@ -39,13 +39,20 @@ class Login extends CI_Controller
                     //session untuk supaya tidak ada user yang boleh akses masuk lewat path...
                     $this->session->set_userdata('logged', TRUE);
                     $this->session->set_userdata('user', $email);
-                    $id = $x['user_id'];
+                    $id = $x['id'];
 
-                    if ($x['user_akses'] == '1') { //untuk login sebagai admin
-                        $name = $x['user_name'];
-                        $this->session->set_userdata('access', 'Administrator', TRUE);
+                    if ($x['user_akses'] == '1') {
+                        $name = $x['nama'];
+                        $date = $x['date_created'];
+                        $foto_profil = $x['foto_profil'];
+                        $email = $x['email'];
+
+                        $this->session->set_userdata('access', 'User', TRUE);
                         $this->session->set_userdata('id', $id);
-                        $this->session->set_userdata('name', $name);
+                        $this->session->set_userdata('nama', $name);
+                        $this->session->set_userdata('date_created', $date);
+                        $this->session->set_userdata('foto_profil', $foto_profil);
+                        $this->session->set_userdata('email', $email);
                         redirect('Home');
                     }
 
@@ -55,21 +62,21 @@ class Login extends CI_Controller
                     $url = base_url('Login');
                     echo $this->session->set_flashdata('msg', '
                     <h3>Uupps!</h3>
-                    <p>Akun kamu telah di blokir!!.</p>');
+                    <p>Your account has been blocked!!.</p>');
                     redirect($url);
                 }
             } else {
                 $url = base_url('Login');
                 echo $this->session->set_flashdata('msg', '
                     <h3>Uupps!</h3>
-                    <p>Password yang kamu masukan salah!!.</p>');
+                    <p>The password you entered is wrong!!.</p>');
                 redirect($url);
             }
         } else {
             $url = base_url('Login');
             echo $this->session->set_flashdata('msg', '
             <h3>Uupps!</h3>
-            <p>Email yang kamu masukan salah!!.</p>');
+            <p>The email you entered is wrong!!</p>');
             redirect($url);
         }
     }
