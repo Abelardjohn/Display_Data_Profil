@@ -1,71 +1,52 @@
-###################
-What is CodeIgniter
-###################
+# Sistem Sederhana untuk Menampilkan Data User yang Sedang Login
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Ini adalah sebuah readme file yang memberikan penjelasan tentang sebuah sistem sederhana yang menggunakan Codeigniter 3 untuk menampilkan data user yang sedang login. Sistem ini memiliki fitur-fitur utama berupa Registrasi, Login, dan Lupa Password.
 
-*******************
-Release Information
-*******************
+## Instalasi
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Berikut adalah langkah-langkah untuk menginstal sistem ini:
 
-**************************
-Changelog and New Features
-**************************
+1. Pastikan server web yang mendukung Codeigniter 3 sudah terpasang.
+2. Salin seluruh file dari repositori ini ke dalam direktori root server web Anda.
+3. Buat sebuah database baru di server MySQL dan impor file sql yang disediakan (`user.sql`) untuk membuat tabel yang diperlukan.
+4. Buka file `application/config/database.php` dan sesuaikan pengaturan database sesuai dengan konfigurasi server MySQL Anda.
+5. Buka file `application/config/config.php` dan sesuaikan konfigurasi lainnya, seperti base URL sesuai dengan lokasi instalasi sistem di server.
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+## Struktur Direktori
 
-*******************
-Server Requirements
-*******************
+Berikut adalah struktur direktori utama dari sistem ini:
 
-PHP version 5.6 or newer is recommended.
+- **application**: Mengandung seluruh file inti dari aplikasi Codeigniter.
+  - **config**: Mengandung file konfigurasi untuk sistem.
+  - **controllers**: Mengandung file-file pengontrol yang mengatur logika sistem.
+  - **models**: Mengandung file-file model yang berinteraksi dengan database.
+  - **views**: Mengandung file-file tampilan yang menampilkan data kepada pengguna.
+- **assets**: Mengandung file-file aset seperti gambar, CSS, dan JavaScript.
+- **user.sql**: File sql untuk membuat tabel dalam database.
+- **index.php**: File utama yang menjalankan sistem Codeigniter.
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+## Fitur-Fitur
 
-************
-Installation
-************
+### Registrasi
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+Fitur Registrasi memungkinkan pengguna untuk membuat akun baru dalam sistem. Untuk mendaftar, pengguna perlu memberikan informasi berikut:
 
-*******
-License
-*******
+- Nama
+- Alamat email
+- Foto Profil
+- Kata sandi
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+Setelah pengguna berhasil mendaftar, informasi akun mereka akan disimpan dalam database untuk digunakan saat login.
 
-*********
-Resources
-*********
+### Login
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+Fitur Login memungkinkan pengguna yang sudah terdaftar untuk masuk ke dalam sistem. Pengguna harus memasukkan alamat email dan kata sandi yang sesuai dengan akun yang sudah terdaftar. Jika informasi yang dimasukkan benar, pengguna akan diarahkan ke halaman HOME yang menampilkan data pengguna yang sedang login.
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+### Lupa Password
 
-***************
-Acknowledgement
-***************
+Fitur Lupa Password memungkinkan pengguna untuk mengatur ulang kata sandi mereka jika mereka lupa. Dalam fitur ini, pengguna diminta untuk memasukkan alamat email terdaftar dan password yang baru untuk mereset password sebelumnya.
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+## Lisensi
+
+Sistem ini dilisensikan di bawah [MIT License](LICENSE). Anda bebas menggunakan, memodifikasi, dan mendistribusikan kode ini sesuai dengan persyaratan lisensi tersebut.
+
